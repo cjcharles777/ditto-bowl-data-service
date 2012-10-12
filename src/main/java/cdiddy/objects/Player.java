@@ -29,6 +29,7 @@ public class Player implements Serializable
     private String displayPosition;
     private String headshotHtml;
     private int yahooId;
+    private List<Position> eligiblePositons;
     private List<SeasonStat> seasonStats;
     private List<WeeklyStat> weeklyStats;
 

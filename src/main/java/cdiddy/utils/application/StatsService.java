@@ -10,6 +10,7 @@ import cdiddy.objects.SeasonStat;
 import cdiddy.objects.Stat;
 import cdiddy.objects.StatCategory;
 import cdiddy.objects.WeeklyStat;
+import cdiddy.objects.dao.PlayersDAO;
 import cdiddy.objects.dao.PositionTypeDAO;
 import cdiddy.objects.dao.SeasonStatsDAO;
 import cdiddy.objects.dao.StatCategoryDAO;
@@ -42,6 +43,8 @@ public class StatsService
     OAuthConnection conn;
     @Autowired
     StatCategoryDAO statCategoryDAOImpl;
+    @Autowired
+    PlayersDAO playersDAOImpl;
     @Autowired
     PositionTypeDAO positionTypeDAOImpl;
     @Autowired
@@ -155,7 +158,7 @@ public class StatsService
             String[] requests = new String[3];
             requests[0] = "http://fantasysports.yahooapis.com/fantasy/v2/players;player_keys="+finalPlayerKey+"/stats?format=json";
             requests[1] = "http://fantasysports.yahooapis.com/fantasy/v2/players;sort_type=season;sort_season=2011;player_keys="+finalPlayerKey+"/stats;type=season;season=2011?format=json";
-            requests[2] = "http://fantasysports.yahooapis.com/fantasy/v2/players;sort_type=season;sort_season=2010;player_keys="+finalPlayerKey+"/stats;type=season;season=2010?format=json";
+          
             
             for (String request : requests)
             {    
@@ -291,6 +294,23 @@ public class StatsService
            // mapper.readValue(JacksonPojoMapper.toJson(trxObj, false), Positions.class);
         return result;
     }
+    
+   
+    
+      private List<Player> connectWeeklyStatsToPlayer(Map<Integer, List<WeeklyStat>> statmap, List<Player> playerObjList) 
+    {
+        
+        List<Player> result = new LinkedList<Player>();
+        for(Player p : playerObjList)
+        {
+                   
+            p.setWeeklyStats(statmap.get(p.getYahooId()));
+            result.add(p);
+        
+        }
+        return result;
+    }
+    
     public void loadStatCategories()
     {
         

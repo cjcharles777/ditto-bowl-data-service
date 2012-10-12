@@ -200,6 +200,26 @@ public class PlayerService
         return result;
     }
 
+     public void yahooWeeklyStatsLoad(int week)
+    {
+        List<Player> allPlayers = playersDAOImpl.getAllPlayers();
+        List<Player> playersToGetStats = new LinkedList<Player>();
+        int i = 0;
+        for(Player p : allPlayers)
+        {
+            playersToGetStats.add(p);
+            i++;
+            if(i%25 == 0)
+            {
+                Map<Integer, List<WeeklyStat>> weeklyStats = statsService.retrieveWeeklyStats(playersToGetStats,week);
+                connectWeeklyStatsToPlayer(weeklyStats, playersToGetStats);
+                playersToGetStats = new LinkedList<Player>();
+                
+            }
+                  
+        }
+        storePlayersToDatabase(allPlayers);
+    }
 
     
     //Database Updates
