@@ -7,7 +7,6 @@ package cdiddy.objects;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -143,6 +142,21 @@ public class Player implements Serializable
     public void setWeeklyStats(List<WeeklyStat> weeklyStats) 
     {
         this.weeklyStats = weeklyStats;
+    }
+
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
+    @JoinTable(
+            name="PlayerToEligiblePositions",
+            joinColumns = @JoinColumn( name="playerid"),
+            inverseJoinColumns = @JoinColumn( name="position_id")
+    )
+    @LazyCollection(LazyCollectionOption.FALSE)
+    public List<Position> getEligiblePositons() {
+        return eligiblePositons;
+    }
+
+    public void setEligiblePositons(List<Position> eligiblePositons) {
+        this.eligiblePositons = eligiblePositons;
     }
     
     

@@ -33,6 +33,7 @@ public class PlayerService
 
     @Autowired
     OAuthConnection conn;
+    
     @Autowired
     private StatsService statsService;
     @Autowired

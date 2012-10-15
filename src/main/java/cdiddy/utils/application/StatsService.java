@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.httpclient.util.URIUtil;
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.scribe.model.Verb;
@@ -41,6 +42,8 @@ public class StatsService
 {
     @Autowired
     OAuthConnection conn;
+    @Autowired
+    YQLQueryUtil yqlUitl ;
     @Autowired
     StatCategoryDAO statCategoryDAOImpl;
     @Autowired
@@ -236,8 +239,8 @@ public class StatsService
             }
             String finalPlayerKey = StringUtils.join(playersList, ",");
             String[] requests = new String[1];
-            requests[0] = "http://fantasysports.yahooapis.com/fantasy/v2/players;player_keys="+finalPlayerKey+"/stats;type=week;week="+week+"?format=json";
-            
+            //requests[0] = "http://fantasysports.yahooapis.com/fantasy/v2/players;player_keys="+finalPlayerKey+"/stats;type=week;week="+week+"?format=json";
+            String query = "select * from fantasysports.players.stats where league_key='273.l.8899' and player_key in ("+finalPlayerKey+") and stats_type='week' and stats_week="+week;
             for (String request : requests)
             {    
                  String response = conn.requestData(request, Verb.GET);
