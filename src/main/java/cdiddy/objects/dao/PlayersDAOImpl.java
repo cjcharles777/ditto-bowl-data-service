@@ -86,6 +86,25 @@ public class PlayersDAOImpl implements PlayersDAO
         return result;
     }
     
+    public Player getPlayerbyYahooPlayerKey(String playerKey) 
+    {
+         Player result = null;
+        
+        List<Player> tempList =  (List<Player>) hibernateTemplate.findByCriteria(
+        DetachedCriteria.forClass(Player.class)
+        .add(Restrictions.eq("player_key", playerKey)));
+        
+        if (tempList != null && tempList.size() > 0)
+        {
+            result = tempList.get(0);
+        }
+        else
+        {
+            result = null;
+        }
+        return result;
+    }
+    
     @Transactional(readOnly = false)
     public void deletePlayer(Player player) {
        hibernateTemplate.delete(player);
@@ -96,6 +115,8 @@ public class PlayersDAOImpl implements PlayersDAO
     {
        hibernateTemplate.deleteAll(hibernateTemplate.loadAll(Player.class));
     }
+
+
 
 
 

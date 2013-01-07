@@ -30,6 +30,13 @@ public class PlayerController
      return playerService.retrivePlayer(playerid);
     }
     
+    @RequestMapping(value = "/retrievePlayer/playerkey/{key}", method = RequestMethod.GET)
+    @ResponseBody
+    public Player retrievePlayerWithKey(@PathVariable("key") String playerKey) 
+    {
+     return playerService.retrivePlayerWithPlayerKey(playerKey);
+    }
+    
     @RequestMapping(value = "/retrievePlayers/{firstResult}/{maxResults}", method = RequestMethod.GET)
     @ResponseBody
     public List<Player> retrievePlayers(@PathVariable("firstResult") int firstResult, @PathVariable("maxResults") int maxResults) 

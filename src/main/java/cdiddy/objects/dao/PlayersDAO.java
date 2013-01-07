@@ -18,7 +18,10 @@ public interface PlayersDAO
     public List<Player> getAllPlayers();
     public List<Player> getPlayers(int firstResult, int maxResults);
     public Player getPlayerById(int playerId);
+    public Player getPlayerbyYahooPlayerKey(String playerKey);
     public Player getPlayerbyYahooId(int yahooId);
     public void deletePlayer(Player player);
     public void clearPlayers();
+
+   
 }

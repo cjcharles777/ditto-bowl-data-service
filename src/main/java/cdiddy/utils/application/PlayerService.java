@@ -335,10 +335,17 @@ public class PlayerService
     {
          return playersDAOImpl.getAllPlayers();
     }
-     public Player retrivePlayer(int playerid) 
+    
+    public Player retrivePlayer(int playerid) 
     {
          return playersDAOImpl.getPlayerbyYahooId(playerid);
     }
+    
+    public Player retrivePlayerWithPlayerKey(String playerKey) 
+    {
+         return playersDAOImpl.getPlayerbyYahooPlayerKey(playerKey);
+    }
+    
     public List<Player> retrivePlayers(int firstResult, int maxResults) 
     {
         return playersDAOImpl.getPlayers(firstResult, maxResults);
