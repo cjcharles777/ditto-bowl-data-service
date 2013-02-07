@@ -29,39 +29,39 @@ public class ByeWeekDAOImpl implements ByeWeekDAO
     }
     
     @Transactional(readOnly = false)
-    @Override
+    
     public void saveByeWeek(ByeWeek bw) 
     {
          hibernateTemplate.saveOrUpdate(bw);
     }
 
     @Transactional(readOnly = false)
-    @Override
+    
     public void saveByeWeeks(List<ByeWeek> listBW) 
     {
          hibernateTemplate.saveOrUpdateAll(listBW);
     }
 
-    @Override
+    
     public List<ByeWeek> getByeWeeks() {
           return (List<ByeWeek>) hibernateTemplate.find("from "
                 + ByeWeek.class.getName());
     }
 
-    @Override
+    
     public ByeWeek geByeWeekById(int byeWeekId) 
     {
         return hibernateTemplate.get(ByeWeek.class, byeWeekId);
     }
 
-    @Override
+    
     @Transactional(readOnly = false)
     public void deleteByeWeek(ByeWeek bw) 
     {
         hibernateTemplate.delete(bw);
     }
 
-    @Override
+    
     @Transactional(readOnly = false)
     public void clearByeWeeks() 
     {

@@ -28,37 +28,37 @@ public class PositionDAOImpl implements PositionDAO
     }
     
     @Transactional(readOnly = false)
-    @Override
+    
     public void savePosition(Position p) 
     {
          hibernateTemplate.saveOrUpdate(p);
     }
 
     @Transactional(readOnly = false)
-    @Override
+    
     public void savePositions(List<Position> listN) {
          hibernateTemplate.saveOrUpdateAll(listN);
     }
 
-    @Override
+    
     public List<Position> getPositions() {
           return (List<Position>) hibernateTemplate.find("from "
                 + Position.class.getName());
     }
 
-    @Override
+    
     public Position gePositionById(int positionId) 
     {
         return hibernateTemplate.get(Position.class, positionId);
     }
 
-    @Override
+    
     @Transactional(readOnly = false)
     public void deletePosition(Position p) {
         hibernateTemplate.delete(p);
     }
 
-    @Override
+    
     @Transactional(readOnly = false)
     public void clearPositions() {
          hibernateTemplate.deleteAll(hibernateTemplate.loadAll(Position.class));

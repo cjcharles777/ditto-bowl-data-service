@@ -29,37 +29,37 @@ public class NameDAOImpl implements NameDAO
     }
     
     @Transactional(readOnly = false)
-    @Override
+    
     public void saveName(Name n) 
     {
          hibernateTemplate.saveOrUpdate(n);
     }
 
     @Transactional(readOnly = false)
-    @Override
+    
     public void saveNames(List<Name> listN) {
          hibernateTemplate.saveOrUpdateAll(listN);
     }
 
-    @Override
+    
     public List<Name> getNames() {
           return (List<Name>) hibernateTemplate.find("from "
                 + Name.class.getName());
     }
 
-    @Override
+    
     public Name geNameById(int nameId) 
     {
         return hibernateTemplate.get(Name.class, nameId);
     }
 
-    @Override
+    
     @Transactional(readOnly = false)
     public void deleteName(Name n) {
         hibernateTemplate.delete(n);
     }
 
-    @Override
+    
     @Transactional(readOnly = false)
     public void clearNames() {
          hibernateTemplate.deleteAll(hibernateTemplate.loadAll(Name.class));

@@ -28,37 +28,37 @@ public class PlayerPicDAOImpl implements PlayerPicDAO
     }
     
     @Transactional(readOnly = false)
-    @Override
+    
     public void savePlayerPic(PlayerPic n) 
     {
          hibernateTemplate.saveOrUpdate(n);
     }
 
     @Transactional(readOnly = false)
-    @Override
+    
     public void savePlayerPics(List<PlayerPic> listN) {
          hibernateTemplate.saveOrUpdateAll(listN);
     }
 
-    @Override
+    
     public List<PlayerPic> getPlayerPics() {
           return (List<PlayerPic>) hibernateTemplate.find("from "
                 + PlayerPic.class.getName());
     }
 
-    @Override
+    
     public PlayerPic gePlayerPicById(int PlayerPicId) 
     {
         return hibernateTemplate.get(PlayerPic.class, PlayerPicId);
     }
 
-    @Override
+    
     @Transactional(readOnly = false)
     public void deletePlayerPic(PlayerPic n) {
         hibernateTemplate.delete(n);
     }
 
-    @Override
+    
     @Transactional(readOnly = false)
     public void clearPlayerPics() {
          hibernateTemplate.deleteAll(hibernateTemplate.loadAll(PlayerPic.class));
