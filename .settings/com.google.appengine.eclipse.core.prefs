@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 eclipse.preferences.version=1
 filesCopiedToWebInfLib=
 googleCloudSqlEnabled=false
 localDevMySqlEnabled=true
+=======
+eclipse.preferences.version=1
+filesCopiedToWebInfLib=
+gaeHrdEnabled=true
+gaeIsEclipseDefaultInstPath=true
+googleCloudSqlEnabled=false
+localDevMySqlEnabled=true
+validationExclusions=src/main/java/cdiddy/utils/system/JacksonPojoMapper.java
+>>>>>>> branch 'master' of https://github.com/cjcharles777/ditto-bowl-data-service.git

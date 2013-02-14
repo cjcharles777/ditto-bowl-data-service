@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 eclipse.preferences.version=1
 jarsExcludedFromWebInfLib=
 warSrcDir=src/main/webapp
 warSrcDirIsOutput=false
+=======
+eclipse.preferences.version=1
+jarsExcludedFromWebInfLib=
+warSrcDir=src/main/webapp
+warSrcDirIsOutput=false
+>>>>>>> branch 'master' of https://github.com/cjcharles777/ditto-bowl-data-service.git
