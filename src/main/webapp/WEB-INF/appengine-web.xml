@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
-<<<<<<< HEAD
-    <application>cdiddy-fantasy-football</application>
-    <version>1</version>
-</appengine-web-app>
-=======
   <application>cdiddy-fantasy-football</application>
   <version>1</version>
 
@@ -34,4 +29,4 @@
   -->
 
 </appengine-web-app>
->>>>>>> branch 'master' of https://github.com/cjcharles777/ditto-bowl-data-service.git
+

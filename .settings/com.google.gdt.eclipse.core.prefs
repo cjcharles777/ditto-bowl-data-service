@@ -1,11 +1,9 @@
-<<<<<<< HEAD
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'master' of https\://github.com/cjcharles777/ditto-bowl-data-service.git
 eclipse.preferences.version=1
 jarsExcludedFromWebInfLib=
-warSrcDir=src/main/webapp
+lastWarOutDir=/home/cedric/git/ditto-bowl-data-service/target
+launchConfigExternalUrlPrefix=
+warSrcDir=target/FantasyFooballDataWebService-1.0-SNAPSHOT
 warSrcDirIsOutput=false
-=======
-eclipse.preferences.version=1
-jarsExcludedFromWebInfLib=
-warSrcDir=src/main/webapp
-warSrcDirIsOutput=false
->>>>>>> branch 'master' of https://github.com/cjcharles777/ditto-bowl-data-service.git

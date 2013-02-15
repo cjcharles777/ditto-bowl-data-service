@@ -25,7 +25,14 @@
           <url>http://download.java.net/maven/2/</url>
           <layout>default</layout>
         </repository>
-
+		<repository>
+	      <snapshots>
+	        <enabled>true</enabled>
+	      </snapshots>
+	      <id>hibernate-gae</id>
+	      <name>Hibernate GAE repository</name>
+	      <url>https://hibernate-gae.googlecode.com/svn/repository</url>
+    	</repository>
   </repositories>
 
   <dependencies>
@@ -181,11 +188,12 @@
       <artifactId>spring-struts</artifactId>
       <version>3.1.1.RELEASE</version>
     </dependency>
-        <dependency>
-        <groupId>c3p0</groupId>
-        <artifactId>c3p0</artifactId>
-        <version>0.9.1.2</version>
-    </dependency>
+     <dependency>
+	    <groupId>fi.foyt.hibernate.gae</groupId>
+	    <artifactId>hibernate-gae-search</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+	    <type>jar</type>
+  </dependency> 
     <dependency>
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
